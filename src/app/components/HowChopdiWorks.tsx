@@ -47,98 +47,108 @@ export default function HowChopdiWorks() {
   ];
 
   return (
-    <section id="how-it-works" className="relative w-full bg-[#C1D2EB] overflow-hidden scroll-mt-24 ">
+    <section id="how-it-works" className="relative w-full bg-[#C1D2EB] overflow-hidden scroll-mt-20">
       {/* 
         EDGE-TO-EDGE FLUID VIEWPORT (>= 1024px: laptop, desktop)
-        100% full width with NO left/right gaps.
-        Cards and arrows are locked by percentages directly matching Image 2 reference.
+        Illustration fits within viewport height so the entire scene (desk, books, shopkeeper) is visible.
+        All cards and arrows stay locked by percentages matching Figma exactly.
       */}
       <div className="hidden lg:block relative w-full overflow-hidden select-none">
-        {/* Full-width Shopkeeper Illustration running edge-to-edge */}
-        <div className="w-full relative">
+        {/* Constrained Shopkeeper Illustration fitting within viewport */}
+        <div
+          className="relative w-full"
+          style={{
+            height: "min(calc(100vh - 80px), 840px)",
+          }}
+        >
           <Image
             src="/Assest/oldPersonImg.png"
             alt="Chopdi - Your hisaab, in a few simple steps."
             width={1440}
             height={840}
             priority
-            className="w-full h-auto block object-cover object-bottom"
+            className="w-full h-full block select-none pointer-events-none"
           />
 
           {/* Centered Header positioned in the sky area */}
           <div className="absolute top-[3%] left-0 right-0 flex flex-col items-center text-center z-10 px-4">
-            <span className="font-['Manrope'] font-bold text-[11px] sm:text-[12px] md:text-[14px] lg:text-[16px] tracking-[2px] text-[#C74C4C] uppercase">
+            <span className="font-['Manrope'] font-bold text-[10px] sm:text-[11px] md:text-[12px] lg:text-[15px] tracking-[2px] text-[#C74C4C] uppercase">
               HOW CHOPDI WORKS
             </span>
-            <h2 className="font-['Manrope'] font-extrabold text-[22px] sm:text-[28px] md:text-[34px] lg:text-[42px] leading-tight text-[#223A5E] mt-0.5 sm:mt-1">
+            <h2 className="font-['Manrope'] font-extrabold text-[18px] sm:text-[22px] md:text-[28px] lg:text-[36px] leading-tight text-[#223A5E] mt-0.3 sm:mt-0.5">
               Your hisaab, in a few simple steps.
             </h2>
-            <p className="font-['Manrope'] font-semibold text-[11px] sm:text-[13px] md:text-[15px] lg:text-[17px] leading-snug text-[#223A5E] mt-1 sm:mt-1.5 max-w-[700px]">
+            <p className="font-['Manrope'] font-semibold text-[10px] sm:text-[12px] md:text-[14px] lg:text-[16px] leading-snug text-[#223A5E] mt-0.5 sm:mt-1 max-w-[700px]">
               Add people, record loans, track payments - and let Chopdi take care of the rest.
             </p>
           </div>
 
-          {/* DOODLE CURVED ARROWS (radiating from shopkeeper to each card, matching Image 4) */}
+          {/* DOODLE ARROW ICONS FROM ASSETS */}
           {/* Arrow 1: Pointing left toward Card 1 (Add your customers) */}
           <div
             className="absolute pointer-events-none z-15"
-            style={{ left: "21.5%", top: "56%", width: "3.5%", height: "3.5%" }}
+            style={{ left: "20.8%", top: "56.5%", width: "4%" }}
           >
-            <svg className="w-full h-full text-[#223A5E]" viewBox="0 0 50 35" fill="none">
-              <path d="M 44 8 C 30 14, 18 18, 6 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 14 15 L 5 22 L 14 29" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img
+              src="/Assest/addYouArrow.png"
+              alt=""
+              className="w-full h-auto object-contain block"
+            />
           </div>
 
           {/* Arrow 2: Pointing up-left toward Card 2 (Give or take money) */}
           <div
             className="absolute pointer-events-none z-15"
-            style={{ left: "32.5%", top: "43.5%", width: "3.2%", height: "4.5%" }}
+            style={{ left: "32.8%", top: "42.5%", width: "4.9%" }}
           >
-            <svg className="w-full h-full text-[#223A5E]" viewBox="0 0 45 45" fill="none">
-              <path d="M 37 38 C 28 26, 20 18, 9 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 7 21 L 8 8 L 21 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img
+              src="/Assest/giveOrArrow.png"
+              alt=""
+              className="w-full h-auto object-contain block"
+            />
           </div>
 
           {/* Arrow 3: Pointing up toward Card 3 (Set Interest easy) */}
           <div
             className="absolute pointer-events-none z-15"
-            style={{ left: "43%", top: "37%", width: "2.8%", height: "4.5%" }}
+            style={{ left: "41.2%", top: "32.5%", width: "2.2%" }}
           >
-            <svg className="w-full h-full text-[#223A5E]" viewBox="0 0 35 45" fill="none">
-              <path d="M 18 39 C 14 27, 15 17, 20 7" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 12 16 L 20 6 L 28 16" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img
+              src="/Assest/setInterestArrow.png"
+              alt=""
+              className="w-full h-auto object-contain block"
+            />
           </div>
 
           {/* Arrow 4: Pointing up-right toward Card 4 (Record payments) */}
           <div
             className="absolute pointer-events-none z-15"
-            style={{ left: "61.5%", top: "43.5%", width: "3.2%", height: "4.5%" }}
+            style={{ left: "62%", top: "42.5%", width: "4.9%" }}
           >
-            <svg className="w-full h-full text-[#223A5E]" viewBox="0 0 45 45" fill="none">
-              <path d="M 8 38 C 17 26, 25 18, 36 9" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 24 9 L 37 8 L 38 21" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img
+              src="/Assest/recordPayArrow.png"
+              alt=""
+              className="w-full h-auto object-contain block"
+            />
           </div>
 
           {/* Arrow 5: Pointing right toward Card 5 (Always know what's due) */}
           <div
             className="absolute pointer-events-none z-15"
-            style={{ left: "71.5%", top: "56%", width: "3.5%", height: "3.5%" }}
+            style={{ left: "71.5%", top: "56.5%", width: "4%" }}
           >
-            <svg className="w-full h-full text-[#223A5E]" viewBox="0 0 50 35" fill="none">
-              <path d="M 6 8 C 20 14, 32 18, 44 22" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 36 15 L 45 22 L 36 29" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-            </svg>
+            <img
+              src="/Assest/alwaysKnowArrow.png"
+              alt=""
+              className="w-full h-auto object-contain block"
+            />
           </div>
 
           {/* 5 COMPACT CARDS (Matching Image 4 layout, arc & typography) */}
           {/* Card 1: Add your customers (Left: 6%, Top: 48.5%) */}
           <div
             className="absolute z-20"
-            style={{ left: "6%", top: "48.5%", width: "14%" }}
+            style={{ left: "6%", top: "53.5%", width: "14%" }}
           >
             <div className="flex flex-col justify-between rounded-[18px] sm:rounded-[22px] md:rounded-[28px] lg:rounded-[32px] bg-[#FDEDD9] shadow-[0px_4px_12px_rgba(34,58,94,0.16)] px-2.5 py-2 sm:px-3 sm:py-2.5 md:px-3.5 md:py-3 transition-transform duration-200 hover:scale-[1.03]">
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -160,7 +170,7 @@ export default function HowChopdiWorks() {
           {/* Card 2: Give or take money (Left: 19%, Top: 30.5%) */}
           <div
             className="absolute z-20"
-            style={{ left: "19%", top: "30.5%", width: "13.5%" }}
+            style={{ left: "22%", top: "30.5%", width: "13.5%" }}
           >
             <div className="flex flex-col justify-between rounded-[18px] sm:rounded-[22px] md:rounded-[28px] lg:rounded-[32px] bg-[#FDEDD9] shadow-[0px_4px_12px_rgba(34,58,94,0.16)] px-2.5 py-2 sm:px-3 sm:py-2.5 md:px-3.5 md:py-3 transition-transform duration-200 hover:scale-[1.03]">
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -182,7 +192,7 @@ export default function HowChopdiWorks() {
           {/* Card 3: Set Interest (easy) (Left: 41.5%, Top: 24.5%) */}
           <div
             className="absolute z-20"
-            style={{ left: "41.5%", top: "24.5%", width: "14%" }}
+            style={{ left: "41.5%", top: "20.5%", width: "14%" }}
           >
             <div className="flex flex-col justify-between rounded-[18px] sm:rounded-[22px] md:rounded-[28px] lg:rounded-[32px] bg-[#FDEDD9] shadow-[0px_4px_12px_rgba(34,58,94,0.16)] px-2.5 py-2 sm:px-3 sm:py-2.5 md:px-3.5 md:py-3 transition-transform duration-200 hover:scale-[1.03]">
               <div className="flex items-center gap-1.5 sm:gap-2">
@@ -226,7 +236,7 @@ export default function HowChopdiWorks() {
           {/* Card 5: Always know what's due (Left: 76%, Top: 48.5%) */}
           <div
             className="absolute z-20"
-            style={{ left: "76%", top: "48.5%", width: "14%" }}
+            style={{ left: "77%", top: "52.5%", width: "14%" }}
           >
             <div className="flex flex-col justify-between rounded-[18px] sm:rounded-[22px] md:rounded-[28px] lg:rounded-[32px] bg-[#FDEDD9] shadow-[0px_4px_12px_rgba(34,58,94,0.16)] px-2.5 py-2 sm:px-3 sm:py-2.5 md:px-3.5 md:py-3 transition-transform duration-200 hover:scale-[1.03]">
               <div className="flex items-center gap-1.5 sm:gap-2">

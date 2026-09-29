@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function GetStarted() {
   return (
-    <section id="get-started" className="relative w-full bg-[#FDEDD9] overflow-hidden scroll-mt-24">
+    <section id="get-started" className="relative w-full bg-[#FDEDD9] overflow-hidden scroll-mt-20">
       {/* 
         DESKTOP & TABLET VIEWPORT (>= 768px)
         100% full width edge-to-edge:
@@ -27,7 +27,7 @@ export default function GetStarted() {
           className="absolute left-[30px] lg:left-[80px] xl:left-[95px] top-[80px] lg:top-[95px] w-[180px] lg:w-[215px] z-10 text-center select-none"
           style={{ transform: "rotate(-13deg)" }}
         >
-          <p className="font-mali font-semibold text-[26px] lg:text-[34px] xl:text-[36px] leading-[34px] lg:leading-[44px] xl:leading-[48px] tracking-[-0.5px] text-[#223A5E]">
+          <p className="font-mali font-semibold text-[24px] lg:text-[32px] xl:text-[32px] leading-[34px] lg:leading-[44px] xl:leading-[48px] tracking-[-0.5px] text-[#223A5E]">
             Traditional
             <br />
             hisaab,
@@ -62,12 +62,12 @@ export default function GetStarted() {
         {/* Center Content Column */}
         <div className="absolute top-[60px] lg:top-[80px] left-0 right-0 flex flex-col items-center text-center z-10 px-4">
           {/* GET STARTED */}
-          <span className="font-['Manrope'] font-bold text-[13px] lg:text-[17px] leading-[30px] lg:leading-[40px] tracking-[2px] text-[#C74C4C] uppercase">
+          <span className="font-['Manrope'] font-bold text-[11px] lg:text-[16px] leading-[30px] lg:leading-[40px] tracking-[2px] text-[#C74C4C] uppercase">
             GET STARTED
           </span>
 
           {/* Download Chopdi Today. */}
-          <h2 className="font-['Manrope'] font-extrabold text-[28px] lg:text-[40px] xl:text-[44px] leading-[36px] lg:leading-[50px] text-[#223A5E] mt-[4px] lg:mt-[6px]">
+          <h2 className="font-['Manrope'] font-extrabold text-[24px] lg:text-[35px] xl:text-[38px] leading-[36px] lg:leading-[50px] text-[#223A5E] mt-[4px] lg:mt-[6px]">
             Download Chopdi Today.
           </h2>
 

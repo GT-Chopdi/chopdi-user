@@ -2,7 +2,7 @@ import Image from "next/image";
 
 export default function WhyChopdi() {
   return (
-    <section id="why-chopdi" className="w-full bg-[#FDEDD9] overflow-hidden scroll-mt-24">
+    <section id="why-chopdi" className="w-full bg-[#FDEDD9] overflow-hidden scroll-mt-20">
       {/* 
         DESKTOP CANVAS (>= 1280px / 1440px) 
         Matches exact Figma specs:
@@ -12,7 +12,7 @@ export default function WhyChopdi() {
         - Feature row: left: 596px, top: 236px, width: 762px, height: 70px
       */}
       <div className="hidden xl:block relative mx-auto w-full max-w-[1440px] h-[386px]">
-        
+
         <div className="absolute left-0 bottom-0 w-[506px] h-[359px] select-none pointer-events-none">
           <Image
             src="/Assest/adultImg.png"
@@ -27,17 +27,17 @@ export default function WhyChopdi() {
         {/* Content Container (starts at left: 596px, top: 40px) */}
         <div className="absolute left-[540px] 2xl:left-[596px] top-[40px] flex flex-col">
           {/* WHY CHOPDI */}
-          <span className="font-['Manrope'] font-bold text-[18px] leading-[40px] tracking-[2px] text-[#C74C4C] uppercase">
+          <span className="font-['Manrope'] font-bold text-[16px] leading-[40px] tracking-[2px] text-[#C74C4C] uppercase">
             WHY CHOPDI
           </span>
 
           {/* Made for real businesses. */}
-          <h2 className="font-['Manrope'] font-extrabold text-[40px] leading-[40px] text-[#223A5E] mt-[4px]">
+          <h2 className="font-['Manrope'] font-extrabold text-[35px] leading-[40px] text-[#223A5E] mt-[4px]">
             Made for real businesses.
           </h2>
 
           {/* Subheading */}
-          <p className="font-['Manrope'] font-semibold text-[18px] leading-[24px] text-[#223A5E] max-w-[623px] mt-[12px]">
+          <p className="font-['Manrope'] font-semibold text-[16px] leading-[24px] text-[#223A5E] max-w-[623px] mt-[12px]">
             Whether you give loans or take them, Chopdi keeps everything organized - with automatic interest calculation and clear records.
           </p>
 
@@ -58,7 +58,7 @@ export default function WhyChopdi() {
                 <h3 className="font-['Manrope'] font-extrabold text-[20px] leading-[24px] text-[#223A5E] whitespace-nowrap">
                   Simple to use
                 </h3>
-                <p className="font-['Manrope'] font-medium text-[16px] leading-[20px] text-[#223A5E] w-[168px]">
+                <p className="font-['Manrope'] font-medium text-[15px] leading-[20px] text-[#223A5E] w-[168px]">
                   Start in minutes, no training needed.
                 </p>
               </div>
@@ -82,7 +82,7 @@ export default function WhyChopdi() {
                 <h3 className="font-['Manrope'] font-extrabold text-[20px] leading-[24px] text-[#223A5E] whitespace-nowrap">
                   Your data is safe
                 </h3>
-                <p className="font-['Manrope'] font-medium text-[16px] leading-[20px] text-[#223A5E] w-[168px]">
+                <p className="font-['Manrope'] font-medium text-[15px] leading-[20px] text-[#223A5E] w-[168px]">
                   Secure and private, always.
                 </p>
               </div>
@@ -106,7 +106,7 @@ export default function WhyChopdi() {
                 <h3 className="font-['Manrope'] font-extrabold text-[20px] leading-[24px] text-[#223A5E] whitespace-nowrap">
                   Built for Bharat
                 </h3>
-                <p className="font-['Manrope'] font-medium text-[16px] leading-[20px] text-[#223A5E] w-[235px]">
+                <p className="font-['Manrope'] font-medium text-[15px] leading-[20px] text-[#223A5E] w-[235px]">
                   For shopkeepers, small businesses and individuals
                 </p>
               </div>

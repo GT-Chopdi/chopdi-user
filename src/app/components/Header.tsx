@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { smoothScrollTo } from "../utils/smoothScroll";
 
 const navItems = [
   { href: "#home", label: "Home" },
@@ -73,9 +74,11 @@ export default function Header() {
           <a
             href="#home"
             className="relative z-[82] flex-shrink-0"
-            onClick={() => {
+            onClick={(e) => {
+              e.preventDefault();
               setHash("#home");
               closeAndGo();
+              smoothScrollTo("#home");
             }}
           >
             <Image
@@ -95,7 +98,11 @@ export default function Header() {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={() => setHash(item.href)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setHash(item.href);
+                    smoothScrollTo(item.href);
+                  }}
                   className={`relative pb-1 text-[15px] font-medium text-[#223A5E] lg:text-[17px] ${
                     active
                       ? "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#223A5E] after:content-['']"
@@ -110,8 +117,9 @@ export default function Header() {
 
           <div className="relative z-[90] flex items-center gap-2">
             <a
-              href="#download"
+              href="#get-started"
               className="relative z-[91] flex flex-shrink-0 items-center gap-3 rounded-full bg-[#223A5E] py-1 pr-1.5 pl-6 shadow-[0_4px_12px_rgba(34,58,94,0.25)] transition-colors duration-300 hover:bg-[#1a2c47] md:py-1.5 md:pr-2 md:pl-7"
+              onClick={(e) => { e.preventDefault(); smoothScrollTo("#get-started"); }}
             >
               <span className="text-[13px] font-medium leading-none text-[#FDEDD9] md:text-[15px] lg:text-[17px]">
                 Download App
@@ -179,9 +187,11 @@ export default function Header() {
                 className={`rounded-xl px-4 py-3 text-[18px] font-medium text-[#223A5E] ${
                   hash === item.href ? "bg-[#223A5E]/10" : ""
                 }`}
-                onClick={() => {
+                onClick={(e) => {
+                  e.preventDefault();
                   setHash(item.href);
                   closeAndGo();
+                  smoothScrollTo(item.href);
                 }}
               >
                 {item.label}
@@ -191,9 +201,9 @@ export default function Header() {
 
           <div className="px-5 pb-8">
             <a
-              href="#download"
+              href="#get-started"
               className="flex items-center justify-center gap-3 rounded-full bg-[#223A5E] py-3 pr-2 pl-5"
-              onClick={closeAndGo}
+              onClick={(e) => { e.preventDefault(); closeAndGo(); smoothScrollTo("#get-started"); }}
             >
               <span className="text-[16px] font-medium text-[#FDEDD9]">Download App</span>
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDEDD9]">

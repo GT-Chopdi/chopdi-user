@@ -2,48 +2,66 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { smoothScrollTo } from "../utils/smoothScroll";
 
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[#C1D2EB] overflow-hidden select-none border-t border-[#223A5E]/15">
-      {/* Main Footer Content */}
-      <div className="mx-auto max-w-[1440px] px-6 sm:px-10 lg:px-16 xl:px-20 pt-12 sm:pt-14 pb-8">
-        <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-[1.5fr_auto_1fr_auto_1.2fr] items-start gap-8 sm:gap-10 lg:gap-4 xl:gap-6">
+      {/* Decorative Bottom-Left Organic Curve & Plant (matching Image 1) */}
+      <div className="absolute left-0 bottom-0 pointer-events-none select-none z-0 hidden sm:block">
+        <Image
+          src="/Assest/offCurve.png"
+          alt=""
+          width={85}
+          height={156}
+          className="w-[45px] sm:w-[55px] md:w-[65px] lg:w-[75px] h-auto object-contain object-bottom-left block opacity-90"
+        />
+      </div>
+      <div className="absolute left-0 bottom-0 pointer-events-none select-none z-10 hidden sm:block">
+        <Image
+          src="/Assest/treeeImg.png"
+          alt=""
+          width={67}
+          height={127}
+          className="w-[36px] sm:w-[42px] md:w-[48px] lg:w-[56px] h-auto object-contain object-bottom-left block"
+        />
+      </div>
 
-          {/* Column 1: Brand & About (Full width on mobile/tablet, 1st col on desktop) */}
-          <div className="col-span-2 lg:col-span-1 flex flex-col max-w-[480px]">
-            {/* Logo */}
-            <div className="flex items-center">
-              <Link
-                href="/"
-                aria-label="Go to homepage"
-                onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
-              >
-                <Image
-                  src="/Assest/logo.png"
-                  alt="Chopdi"
-                  width={217}
-                  height={66}
-                  className="h-10 sm:h-12 w-auto object-contain transition-opacity duration-200 hover:opacity-80"
-                />
-              </Link>
-            </div>
+      {/* Main Footer Container */}
+      <div className="relative z-10 mx-auto w-full max-w-[1680px] px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20 pt-10 sm:pt-12 lg:pt-14 pb-6 sm:pb-8">
+        {/* 3-Column Top Section with Vertical Dividers */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_auto_0.8fr_auto_1.1fr] items-stretch gap-8 lg:gap-0">
 
-            {/* Tagline */}
-            <h3 className="font-['Manrope'] font-semibold text-[19px] sm:text-[21px] leading-[26px] text-[#223A5E] mt-3.5 sm:mt-4">
+          {/* Column 1: Brand & Tagline & Description */}
+          <div className="flex flex-col lg:pr-8 xl:pr-12 max-w-[500px]">
+            <Link
+              href="/"
+              aria-label="Go to homepage"
+              onClick={(e) => { e.preventDefault(); smoothScrollTo("#home"); }}
+              className="inline-block"
+            >
+              <Image
+                src="/Assest/logo.png"
+                alt="Chopdi"
+                width={217}
+                height={66}
+                className="h-9 sm:h-11 md:h-12 w-auto object-contain transition-opacity duration-200 hover:opacity-80"
+              />
+            </Link>
+
+            <h3 className="font-['Manrope'] font-bold text-[18px] sm:text-[20px] lg:text-[22px] leading-tight text-[#223A5E] mt-3 sm:mt-4">
               Hisaab, Har Kadam Saath.
             </h3>
 
-            {/* Description */}
-            <p className="font-['Manrope'] font-medium text-[14px] sm:text-[15px] lg:text-[16px] leading-[22px] sm:leading-[24px] text-[#223A5E] mt-2">
+            <p className="font-['Manrope'] font-medium text-[13.5px] sm:text-[14.5px] lg:text-[15.5px] leading-[22px] sm:leading-[24px] text-[#223A5E] mt-2 sm:mt-2.5 opacity-90">
               Chopdi is a simple and secure digital hisab book for individuals and businesses to manage loans, track interest, and never miss a payment.
             </p>
           </div>
 
-          {/* Built For Tomorrow Stamp + Divider 1 (Desktop only) */}
-          <div className="hidden lg:flex items-center gap-4 self-stretch">
-            {/* Handwritten stamp with arrow */}
-            <div className="w-[115px] xl:w-[125px] shrink-0 self-start mt-2 pointer-events-none">
+          {/* Vertical Divider 1 with Floating 'Built for tomorrow' Stamp */}
+          <div className="hidden lg:flex relative flex-col items-center justify-start self-stretch px-4 xl:px-8">
+            {/* Built for a more organized tomorrow Stamp */}
+            <div className="absolute -top-6 xl:-top-14 -left-14 xl:-left-35 w-[120px] xl:w-[135px] pointer-events-none select-none z-20">
               <Image
                 src="/Assest/buildTextImg.png"
                 alt="Built for a more organized tomorrow"
@@ -52,60 +70,65 @@ export default function Footer() {
                 className="w-full h-auto object-contain"
               />
             </div>
-
-            {/* Vertical Line 50 */}
-            <div className="w-[1px] h-[190px] bg-[#223A5E]/30 shrink-0" />
+            {/* Divider Line */}
+            <div className="w-[1px] h-full min-h-[160px] bg-[#223A5E]/25" />
           </div>
 
-          {/* Column 2: Quick Links (Col 1 of row 2 on mobile/tablet) */}
-          <div className="col-span-1 flex flex-col pl-0 lg:pl-4 xl:pl-6">
-            <h4 className="font-['Manrope'] font-bold text-[17px] sm:text-[19px] leading-[24px] text-[#223A5E] mb-3 sm:mb-4">
+          {/* Column 2: Quick Links */}
+          <div className="flex flex-col lg:px-6 xl:px-26">
+            <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-3 sm:mb-4">
               Quick Links
             </h4>
-            <ul className="flex flex-col space-y-2.5 sm:space-y-3 font-['Manrope'] font-medium text-[14px] sm:text-[16px] text-[#223A5E]">
+            <ul className="flex flex-col space-y-2 sm:space-y-2.5 font-['Manrope'] font-medium text-[14px] sm:text-[15px] lg:text-[16px] text-[#223A5E]">
               <li>
                 <a
                   href="#home"
-                  className="hover:opacity-75 hover:translate-x-0.5 transition-all duration-200 no-underline cursor-pointer inline-block"
+                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2"
+                  onClick={(e) => { e.preventDefault(); smoothScrollTo("#home"); }}
                 >
-                  Home
+                  <span className="text-[18px] leading-none">•</span>
+                  <span>Home</span>
                 </a>
               </li>
               <li>
                 <a
                   href="#why-chopdi"
-                  className="hover:opacity-75 hover:translate-x-0.5 transition-all duration-200 no-underline cursor-pointer inline-block"
+                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2"
+                  onClick={(e) => { e.preventDefault(); smoothScrollTo("#why-chopdi"); }}
                 >
-                  Why Chopdi
+                  <span className="text-[18px] leading-none">•</span>
+                  <span>Why Chopdi</span>
                 </a>
               </li>
               <li>
                 <a
                   href="#how-it-works"
-                  className="hover:opacity-75 hover:translate-x-0.5 transition-all duration-200 no-underline cursor-pointer inline-block"
+                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2"
+                  onClick={(e) => { e.preventDefault(); smoothScrollTo("#how-it-works"); }}
                 >
-                  How It Works
+                  <span className="text-[18px] leading-none">•</span>
+                  <span>How It Works</span>
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Divider 2 (Desktop only) */}
-          <div className="hidden lg:flex items-center self-stretch px-2 xl:px-4">
-            <div className="w-[1px] h-[190px] bg-[#223A5E]/30 shrink-0" />
+          {/* Vertical Divider 2 */}
+          <div className="hidden lg:flex flex-col items-center justify-center self-stretch px-4 xl:px-8">
+            <div className="w-[1px] h-full min-h-[160px] bg-[#223A5E]/25" />
           </div>
 
-          {/* Column 3: Connect with Us (Col 2 of row 2 on mobile/tablet) */}
-          <div className="col-span-1 flex flex-col">
-            <h4 className="font-['Manrope'] font-bold text-[17px] sm:text-[19px] leading-[24px] text-[#223A5E] mb-2 sm:mb-2.5">
+          {/* Column 3: Connect with Us */}
+          <div className="flex flex-col lg:pl-6 xl:pl-25">
+            <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-1.5 sm:mb-2">
               Connect with Us
             </h4>
-            <p className="font-['Manrope'] font-medium text-[13px] sm:text-[15px] leading-[20px] sm:leading-[22px] text-[#223A5E] max-w-[260px]">
+            <p className="font-['Manrope'] font-medium text-[13px] sm:text-[14px] lg:text-[15px] leading-snug text-[#223A5E] max-w-[280px] opacity-90">
               Have a question or feedback? We&apos;d love to hear from you.
             </p>
 
-            {/* Social Icons (Instagram, LinkedIn, Email) */}
-            <div className="flex items-center gap-3.5 sm:gap-4 mt-3.5 sm:mt-5">
+            {/* Social Icons: Instagram, Facebook, LinkedIn, Email */}
+            <div className="flex items-center gap-3 sm:gap-4.5 mt-3 sm:mt-4">
               {/* Instagram */}
               <a
                 href="https://www.instagram.com/trychopdi/"
@@ -117,9 +140,9 @@ export default function Footer() {
                 <Image
                   src="/Assest/instagramImg.png"
                   alt="Instagram"
-                  width={33}
-                  height={33}
-                  className="w-[24px] h-[24px] sm:w-[25px] sm:h-[25px] object-contain"
+                  width={28}
+                  height={28}
+                  className="w-[22px] h-[22px] sm:w-[24px] sm:h-[24px] object-contain"
                 />
               </a>
 
@@ -134,9 +157,9 @@ export default function Footer() {
                 <Image
                   src="/Assest/linkedIcon.png"
                   alt="LinkedIn"
-                  width={33}
-                  height={33}
-                  className="w-[24px] h-[24px] sm:w-[25px] sm:h-[25px] object-contain"
+                  width={28}
+                  height={28}
+                  className="w-[22px] h-[22px] sm:w-[24px] sm:h-[24px] object-contain"
                 />
               </a>
 
@@ -152,70 +175,65 @@ export default function Footer() {
                 <Image
                   src="/Assest/emailImg.png"
                   alt="Email"
-                  width={36}
-                  height={36}
-                  className="w-[26px] h-[26px] sm:w-[28px] sm:h-[28px] object-contain"
+                  width={28}
+                  height={28}
+                  className="w-[24px] h-[24px] sm:w-[26px] sm:h-[26px] object-contain"
                 />
               </a>
             </div>
 
             {/* Privacy Policy | Terms of Use */}
-            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-1 sm:gap-2 font-['Manrope'] font-medium text-[12.5px] sm:text-[14px] text-[#223A5E] mt-3 sm:mt-4">
+            <div className="flex items-center gap-2 font-['Manrope'] font-bold text-[13px] sm:text-[14px] text-[#223A5E] mt-3 sm:mt-4">
               <Link href="/privacy-policy" className="hover:opacity-75 transition-opacity">Privacy Policy</Link>
-              <span className="hidden sm:inline">|</span>
+              <span>|</span>
               <Link href="/terms-of-use" className="hover:opacity-75 transition-opacity">Terms of Use</Link>
             </div>
           </div>
         </div>
 
         {/* Horizontal Divider Line */}
-        <div className="w-full h-[1px] bg-[#223A5E]/20 mt-10 sm:mt-12 mb-6" />
+        <div className="w-full h-[1px] bg-[#223A5E]/20 mt-8 sm:mt-10 lg:mt-12 mb-5 sm:mb-6" />
 
-        {/* Bottom Bar */}
-        <div className="relative flex flex-col lg:flex-row items-center justify-between gap-4 pt-1 text-center">
-          {/* Powered By (1st on mobile/tablet, 2nd on desktop) */}
-          <div className="order-1 lg:order-2 flex items-center gap-2.5 sm:gap-3">
-            <span className="font-['Manrope'] font-semibold text-[14px] sm:text-[16px] text-[#223A5E]">
+        {/* Bottom Bar: Copyright, Powered By, Made in India */}
+        <div className="flex flex-col sm:flex-row items-center justify-between gap-4 text-center sm:text-left">
+          {/* Copyright */}
+          <div>
+            <p className="font-['Manrope'] font-medium text-[13px] sm:text-[14px] lg:text-[15px] text-[#223A5E]">
+              © 2026 Chopdi. All rights reserved
+            </p>
+          </div>
+
+          {/* Powered By Gelora Tech */}
+          <div className="flex items-center gap-2 sm:gap-2.5">
+            <span className="font-['Manrope'] font-semibold text-[13.5px] sm:text-[15px] text-[#223A5E]">
               Powered By
             </span>
             <Image
               src="/Assest/geloraTech.png"
               alt="Gelora Tech"
-              width={269}
-              height={96}
-              className="h-9 sm:h-11 md:h-13 lg:h-14 w-auto object-contain"
+              width={180}
+              height={85}
+              className="h-8 sm:h-9 md:h-23 w-auto object-contain"
             />
           </div>
 
-          {/* Made with in India (2nd on mobile/tablet, 3rd on desktop) */}
-          <div className="order-2 lg:order-3 flex items-center gap-1.5 text-center lg:text-right">
-            <span className="font-['Manrope'] font-medium text-[13px] sm:text-[15px] text-[#223A5E]">
+          {/* Made with [heartImg] in India */}
+          <div className="flex items-center gap-1.5">
+            <span className="font-['Manrope'] font-medium text-[13px] sm:text-[14px] lg:text-[15px] text-[#223A5E]">
               Made with
             </span>
-            <span className="text-[#E02424] text-[16px]">❤️</span>
-            <span className="font-['Manrope'] font-medium text-[13px] sm:text-[15px] text-[#223A5E]">
+            <Image
+              src="/Assest/heartImg.png"
+              alt="love"
+              width={18}
+              height={18}
+              className="w-4 h-4 object-contain inline-block"
+            />
+            <span className="font-['Manrope'] font-medium text-[13px] sm:text-[14px] lg:text-[15px] text-[#223A5E]">
               in India
             </span>
           </div>
-
-          {/* Copyright (3rd on mobile/tablet, 1st on desktop) */}
-          <div className="order-3 lg:order-1 text-center lg:text-left">
-            <p className="font-['Manrope'] font-medium text-[13px] sm:text-[15px] text-[#223A5E]">
-              © 2026 Chopdi. All rights reserved
-            </p>
-          </div>
         </div>
-      </div>
-
-      {/* Bottom-left plant decoration (treeeImg.png) starting from the very left edge */}
-      <div className="absolute left-0 bottom-0 w-[38px] sm:w-[44px] pointer-events-none select-none z-0 hidden sm:block">
-        <Image
-          src="/Assest/treeeImg.png"
-          alt=""
-          width={67}
-          height={127}
-          className="w-full h-auto object-contain object-bottom block"
-        />
       </div>
     </footer>
   );

@@ -61,7 +61,7 @@ export default function Footer() {
           {/* Vertical Divider 1 with Floating 'Built for tomorrow' Stamp */}
           <div className="hidden lg:flex relative flex-col items-center justify-start self-stretch px-4 xl:px-8">
             {/* Built for a more organized tomorrow Stamp */}
-            <div className="absolute -top-6 xl:-top-14 -left-14 xl:-left-35 w-[120px] xl:w-[135px] pointer-events-none select-none z-20">
+            <div className="absolute -top-12 xl:-top-14 -left-32 xl:-left-35 w-[120px] xl:w-[135px] pointer-events-none select-none z-20">
               <Image
                 src="/Assest/buildTextImg.png"
                 alt="Built for a more organized tomorrow"
@@ -75,7 +75,7 @@ export default function Footer() {
           </div>
 
           {/* Column 2: Quick Links */}
-          <div className="flex flex-col lg:px-6 xl:px-26">
+          <div className="flex flex-col  lg:px-15 xl:px-22">
             <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-3 sm:mb-4">
               Quick Links
             </h4>

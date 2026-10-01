@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { smoothScrollTo } from "../utils/smoothScroll";
 
 const navItems = [
@@ -13,9 +13,15 @@ const navItems = [
 export default function Header() {
   const [open, setOpen] = useState(false);
   const [hash, setHash] = useState("#home");
+  const manualLockUntilRef = useRef<number>(0);
 
   useEffect(() => {
     const handleScroll = () => {
+      // If a tab was clicked, hold active indicator without being reset by intermediate scroll positions
+      if (Date.now() < manualLockUntilRef.current) {
+        return;
+      }
+
       if (window.scrollY < 120) {
         setHash("#home");
         return;
@@ -67,6 +73,14 @@ export default function Header() {
 
   const closeAndGo = () => setOpen(false);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    setHash(href);
+    manualLockUntilRef.current = Date.now() + 700; // Instantly lock active tab to clicked destination
+    closeAndGo();
+    smoothScrollTo(href);
+  };
+
   return (
     <>
       <header className="sticky top-0 z-[80] w-full bg-[#C1D2EB] px-5 py-3.5 md:px-10 lg:px-16 xl:px-20">
@@ -74,12 +88,7 @@ export default function Header() {
           <a
             href="#home"
             className="relative z-[82] flex-shrink-0"
-            onClick={(e) => {
-              e.preventDefault();
-              setHash("#home");
-              closeAndGo();
-              smoothScrollTo("#home");
-            }}
+            onClick={(e) => handleNavClick(e, "#home")}
           >
             <Image
               src="/Assest/logo.png"
@@ -98,15 +107,11 @@ export default function Header() {
                 <a
                   key={item.label}
                   href={item.href}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    setHash(item.href);
-                    smoothScrollTo(item.href);
-                  }}
-                  className={`relative pb-1 text-[15px] font-medium text-[#223A5E] lg:text-[17px] ${
+                  onClick={(e) => handleNavClick(e, item.href)}
+                  className={`relative pb-1 text-[15px] font-medium text-[#223A5E] lg:text-[17px] transition-all duration-150 ${
                     active
                       ? "after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#223A5E] after:content-['']"
-                      : "opacity-90 hover:opacity-100"
+                      : "opacity-80 hover:opacity-100"
                   }`}
                 >
                   {item.label}
@@ -119,7 +124,7 @@ export default function Header() {
             <a
               href="#get-started"
               className="relative z-[91] flex flex-shrink-0 items-center gap-3 rounded-full bg-[#223A5E] py-1 pr-1.5 pl-6 shadow-[0_4px_12px_rgba(34,58,94,0.25)] transition-colors duration-300 hover:bg-[#1a2c47] md:py-1.5 md:pr-2 md:pl-7"
-              onClick={(e) => { e.preventDefault(); smoothScrollTo("#get-started"); }}
+              onClick={(e) => handleNavClick(e, "#get-started")}
             >
               <span className="text-[13px] font-medium leading-none text-[#FDEDD9] md:text-[15px] lg:text-[17px]">
                 Download App
@@ -187,12 +192,7 @@ export default function Header() {
                 className={`rounded-xl px-4 py-3 text-[18px] font-medium text-[#223A5E] ${
                   hash === item.href ? "bg-[#223A5E]/10" : ""
                 }`}
-                onClick={(e) => {
-                  e.preventDefault();
-                  setHash(item.href);
-                  closeAndGo();
-                  smoothScrollTo(item.href);
-                }}
+                onClick={(e) => handleNavClick(e, item.href)}
               >
                 {item.label}
               </a>
@@ -203,7 +203,7 @@ export default function Header() {
             <a
               href="#get-started"
               className="flex items-center justify-center gap-3 rounded-full bg-[#223A5E] py-3 pr-2 pl-5"
-              onClick={(e) => { e.preventDefault(); closeAndGo(); smoothScrollTo("#get-started"); }}
+              onClick={(e) => handleNavClick(e, "#get-started")}
             >
               <span className="text-[16px] font-medium text-[#FDEDD9]">Download App</span>
               <span className="flex h-8 w-8 items-center justify-center rounded-full bg-[#FDEDD9]">

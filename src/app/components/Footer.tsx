@@ -7,7 +7,7 @@ import { smoothScrollTo } from "../utils/smoothScroll";
 export default function Footer() {
   return (
     <footer className="relative w-full bg-[#C1D2EB] overflow-hidden select-none border-t border-[#223A5E]/15">
-      {/* Decorative Bottom-Left Organic Curve & Plant (matching Image 1) */}
+      {/* Decorative Bottom-Left Organic Curve & Plant */}
       <div className="absolute left-0 bottom-0 pointer-events-none select-none z-0 hidden sm:block">
         <Image
           src="/Assest/offCurve.png"
@@ -30,7 +30,7 @@ export default function Footer() {
       {/* Main Footer Container */}
       <div className="relative z-10 mx-auto w-full max-w-[1680px] px-6 sm:px-10 lg:px-12 xl:px-16 2xl:px-20 pt-10 sm:pt-12 lg:pt-14 pb-6 sm:pb-8">
         {/* 3-Column Top Section with Vertical Dividers */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-[1.3fr_auto_0.8fr_auto_1.1fr] items-stretch gap-8 lg:gap-0">
+        <div className="grid grid-cols-1 md:grid-cols-[1.3fr_max-content_1.1fr] lg:grid-cols-[1.3fr_auto_max-content_auto_1.1fr] items-stretch gap-8 md:gap-6 lg:gap-0">
 
           {/* Column 1: Brand & Tagline & Description */}
           <div className="flex flex-col lg:pr-8 xl:pr-12 max-w-[500px]">
@@ -74,40 +74,40 @@ export default function Footer() {
             <div className="w-[1px] h-full min-h-[160px] bg-[#223A5E]/25" />
           </div>
 
-          {/* Column 2: Quick Links */}
-          <div className="flex flex-col  lg:px-15 xl:px-22">
-            <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-3 sm:mb-4">
+          {/* Column 2: Quick Links (No wrapping on tab, laptop, monitor) */}
+          <div className="flex flex-col shrink-0 min-w-max w-max whitespace-nowrap px-0 sm:px-2 md:px-4 lg:px-8 xl:px-14">
+            <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-3 sm:mb-4 whitespace-nowrap select-none">
               Quick Links
             </h4>
-            <ul className="flex flex-col space-y-2 sm:space-y-2.5 font-['Manrope'] font-medium text-[14px] sm:text-[15px] lg:text-[16px] text-[#223A5E]">
-              <li>
+            <ul className="flex flex-col space-y-2 sm:space-y-2.5 font-['Manrope'] font-medium text-[14px] sm:text-[15px] lg:text-[16px] text-[#223A5E] whitespace-nowrap">
+              <li className="whitespace-nowrap">
                 <a
                   href="#home"
-                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2"
+                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2 whitespace-nowrap"
                   onClick={(e) => { e.preventDefault(); smoothScrollTo("#home"); }}
                 >
-                  <span className="text-[18px] leading-none">•</span>
-                  <span>Home</span>
+                  <span className="text-[18px] leading-none select-none">•</span>
+                  <span className="whitespace-nowrap">Home</span>
                 </a>
               </li>
-              <li>
+              <li className="whitespace-nowrap">
                 <a
                   href="#why-chopdi"
-                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2"
+                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2 whitespace-nowrap"
                   onClick={(e) => { e.preventDefault(); smoothScrollTo("#why-chopdi"); }}
                 >
-                  <span className="text-[18px] leading-none">•</span>
-                  <span>Why Chopdi</span>
+                  <span className="text-[18px] leading-none select-none">•</span>
+                  <span className="whitespace-nowrap">Why Chopdi</span>
                 </a>
               </li>
-              <li>
+              <li className="whitespace-nowrap">
                 <a
                   href="#how-it-works"
-                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2"
+                  className="hover:opacity-75 transition-opacity inline-flex items-center gap-2 whitespace-nowrap"
                   onClick={(e) => { e.preventDefault(); smoothScrollTo("#how-it-works"); }}
                 >
-                  <span className="text-[18px] leading-none">•</span>
-                  <span>How It Works</span>
+                  <span className="text-[18px] leading-none select-none">•</span>
+                  <span className="whitespace-nowrap">How It Works</span>
                 </a>
               </li>
             </ul>
@@ -119,15 +119,15 @@ export default function Footer() {
           </div>
 
           {/* Column 3: Connect with Us */}
-          <div className="flex flex-col lg:pl-6 xl:pl-25">
-            <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-1.5 sm:mb-2">
+          <div className="flex flex-col lg:pl-6 xl:pl-16">
+            <h4 className="font-['Manrope'] font-bold text-[16px] sm:text-[18px] lg:text-[19px] leading-normal text-[#223A5E] mb-1.5 sm:mb-2 whitespace-nowrap">
               Connect with Us
             </h4>
             <p className="font-['Manrope'] font-medium text-[13px] sm:text-[14px] lg:text-[15px] leading-snug text-[#223A5E] max-w-[280px] opacity-90">
               Have a question or feedback? We&apos;d love to hear from you.
             </p>
 
-            {/* Social Icons: Instagram, Facebook, LinkedIn, Email */}
+            {/* Social Icons: Instagram, LinkedIn, Email */}
             <div className="flex items-center gap-3 sm:gap-4.5 mt-3 sm:mt-4">
               {/* Instagram */}
               <a
@@ -183,7 +183,7 @@ export default function Footer() {
             </div>
 
             {/* Privacy Policy | Terms of Use */}
-            <div className="flex items-center gap-2 font-['Manrope'] font-bold text-[13px] sm:text-[14px] text-[#223A5E] mt-3 sm:mt-4">
+            <div className="flex items-center gap-2 font-['Manrope'] font-bold text-[13px] sm:text-[14px] text-[#223A5E] mt-3 sm:mt-4 whitespace-nowrap">
               <Link href="/privacy-policy" className="hover:opacity-75 transition-opacity">Privacy Policy</Link>
               <span>|</span>
               <Link href="/terms-of-use" className="hover:opacity-75 transition-opacity">Terms of Use</Link>
@@ -199,7 +199,7 @@ export default function Footer() {
           {/* Copyright */}
           <div>
             <p className="font-['Manrope'] font-medium text-[13px] sm:text-[14px] lg:text-[15px] text-[#223A5E]">
-              © 2026 Chopdi. All rights reserved
+              &copy; 2026 Chopdi. All rights reserved
             </p>
           </div>
 
@@ -208,13 +208,20 @@ export default function Footer() {
             <span className="font-['Manrope'] font-semibold text-[13.5px] sm:text-[15px] text-[#223A5E]">
               Powered By
             </span>
-            <Image
-              src="/Assest/geloraTech.png"
-              alt="Gelora Tech"
-              width={180}
-              height={85}
-              className="h-8 sm:h-9 md:h-23 w-auto object-contain"
-            />
+
+            <a
+              href="https://www.geloratech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Image
+                src="/Assest/geloraTech.png"
+                alt="Gelora Tech"
+                width={180}
+                height={85}
+                className="h-8 sm:h-9 md:h-23 w-auto object-contain"
+              />
+            </a>
           </div>
 
           {/* Made with [heartImg] in India */}

@@ -33,10 +33,10 @@ export function smoothScrollTo(targetHref: string, duration?: number): void {
     currentAnimationId = null;
   }
 
-  // Calculate duration based on distance so the scroll glides at a steady, readable pace
-  // Min 850ms, Max 1400ms for continuous smooth travel across all sections
+  // Calculate duration based on distance so the scroll is snappy and fluid
+  // Min 450ms, Max 650ms for instant, responsive smooth travel across sections
   const scrollDuration =
-    duration ?? Math.min(Math.max(Math.abs(distance) * 0.65, 850), 1400);
+    duration ?? Math.min(Math.max(Math.abs(distance) * 0.35, 450), 650);
 
   const startTime = performance.now();
 

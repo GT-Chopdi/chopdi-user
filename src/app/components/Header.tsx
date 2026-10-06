@@ -16,6 +16,15 @@ export default function Header() {
   const manualLockUntilRef = useRef<number>(0);
 
   useEffect(() => {
+    const updateUrl = (href: string) => {
+      if (href === "#home") {
+        // For Home, remove the hash from the URL
+        history.replaceState(null, "", window.location.pathname);
+      } else {
+        history.replaceState(null, "", href);
+      }
+    };
+
     const handleScroll = () => {
       // If a tab was clicked, hold active indicator without being reset by intermediate scroll positions
       if (Date.now() < manualLockUntilRef.current) {
@@ -24,6 +33,7 @@ export default function Header() {
 
       if (window.scrollY < 120) {
         setHash("#home");
+        updateUrl("#home");
         return;
       }
 
@@ -38,6 +48,7 @@ export default function Header() {
           const rect = el.getBoundingClientRect();
           if (rect.top <= 220) {
             setHash(href);
+            updateUrl(href);
             return;
           }
         }
@@ -77,6 +88,12 @@ export default function Header() {
     e.preventDefault();
     setHash(href);
     manualLockUntilRef.current = Date.now() + 700; // Instantly lock active tab to clicked destination
+    // Update browser URL immediately on click
+    if (href === "#home") {
+      history.replaceState(null, "", window.location.pathname);
+    } else {
+      history.replaceState(null, "", href);
+    }
     closeAndGo();
     smoothScrollTo(href);
   };
